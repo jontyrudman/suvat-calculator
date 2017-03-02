@@ -16,4 +16,4 @@ Changes that need to be made:
 2. Input all x and y components given to you. Note that the y acceleration must be 0.
 3. You will see a table of all x values and all y values up to the apex.
 
-Wanna help? Testing is always helpful, and if you find major problems or have ideas, make an issue or a pull request of course if you crontibute to the code.
+Wanna help? Testing is always helpful, and if you find problems or have ideas, make an issue or a pull request of course if you contribute to the code.

@@ -49,13 +49,13 @@ def t_sva(s:float, v:float, a:float) -> float:
 def v_sua(s:float, u:float, a:float) -> float:
 	return float(math.sqrt(u**2 + 2 * a * s))
 
-def u_sva(s:float, u:float, a:float) -> float:
+def u_sva(s:float, v:float, a:float) -> float:
 	return float(math.sqrt(v**2 - 2 * a *s))
 
-def a_suv(s:float, u:float, a:float) -> float:
+def a_suv(s:float, u:float, v:float) -> float:
 	return float((v**2 - u**2)/ 2 * s)
 
-def s_uva(s:float, u:float, a:float) -> float:
+def s_uva(u:float, v:float, a:float) -> float:
 	return float((v**2 - u**2)/ 2 * a)
 
 #s=t(u+v)/2
@@ -64,7 +64,6 @@ def s_uvt(u:float, v:float, t:float) -> float:
 
 def u_svt(s:float, v:float, t:float) -> float:
 	return float(((2*s)/t)-v)
-
 
 def v_sut(s:float, u:float, t:float) -> float:
 	return float(((2*s)/t)-u)

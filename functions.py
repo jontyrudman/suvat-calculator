@@ -11,13 +11,13 @@ def v_uat(u:float, a:float, t:float) -> float:
 	return float(u + (a*t))
 
 def u_vat(v:float, a:float, t:float) -> float:
-	return float(v-(a*t))
+	return float(v - (a * t))
 
 def t_uva(u:float, v:float, a:float) -> float:
-	return float((v-u)/a)
+	return float((v - u)/ a)
 
 def a_uvt(u:float, v:float, t:float) -> float:
-	return float((v-u)/t)
+	return float((v - u)/ t)
 
 #s=u+0.5at^2
 def s_uat(u:float, a:float, t:float) -> float:
@@ -40,10 +40,10 @@ def v_sat(s:float, a:float, t:float) -> float:
 	return float(s+(0.5 * a * t**2))
 
 def a_svt(s:float, v:float, t:float) -> float:
-	return float((2 * (v - s))/t**2)
+	return float((2 * (v - s))/ t**2)
 
 def t_sva(s:float, v:float, a:float) -> float:
-	return float(math.sqrt((2*(v - s))/a))
+	return float(math.sqrt((2 * (v - s))/ a))
 
 #v^2=u^2+2as
 def v_sua(s:float, u:float, a:float) -> float:

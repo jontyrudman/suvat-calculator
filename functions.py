@@ -69,7 +69,7 @@ def u_svt(s:float, v:float, t:float) -> float:
 def v_sut(s:float, u:float, t:float) -> float:
 	return float(((2*s)/t)-u)
 
-def t_suv(s:float, u:float, t:float) -> float:
+def t_suv(s:float, u:float, v:float) -> float:
 	return float((2*s)/(u+v))
 
 #Old eqs

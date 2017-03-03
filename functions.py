@@ -73,7 +73,7 @@ def t_suv(s:float, u:float, v:float) -> float:
 
 #Old eqs
 def tx_equals_2sx_over_ux_plus_vx(s, u, v):
-    t = (2*float(s))/(float(u)+float(v))
+    t = (2 * float(s)) / (float(u) + float(v))
     return t
 
 def tx_equals_sx_over_ux(s, u):

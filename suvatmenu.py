@@ -12,32 +12,17 @@ while True:
 
         # Asks for the x values.
         sx = input("x: range = ")
-        if sx not in ["", "[-]"]:
-                sx = float(sx)
-
         ux = input("   initial velocity = ")
-        if ux not in ["", "[-]"]:
-                ux = float(ux)
-
         vx = input("   final velocity = ")
-        if vx not in ["", "[-]"]:
-                vx = float(vx)
-
         ax = input("   acceleration = ")
-        if ax not in ["", "[-]"]:
-                ax = float(ax)
 
         # Asks for total time.
         tx = input("   total time = ")
 
         # Asks for the y values.
         sy = input("\ny: height at apex = ")
-        if sy not in ["", "[-]"]:
-               sy = float(sy)
 
         uy = input("   initial velocity = ")
-        if uy not in ["", "[-]"]:
-                uy = float(uy)
 
         # Notifies the user that the velocity 
             # at the apex will always be 0.
@@ -45,8 +30,6 @@ while True:
         vy = "0"
 
         ay = input("   acceleration = ")
-        if ay not in ["", "[-]"]:
-                ay = float(ay)
 
         # If there is no value for total time (tx), ask for ty
             # and set tx as 2*ty.
@@ -61,13 +44,6 @@ while True:
 
         # If menuvalidator() returns False, tell the user their input
             # configuration is invalid.
-
-        if tx not in ["", "[-]"]:
-                tx = float(tx)
-
-        if ty not in ["", "[-]"]:
-                ty = float(ty)
-
         if menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, tx, ty) == False:
 
              print("\n"*10, "Invalid. Got any more values? Trying again...\n")

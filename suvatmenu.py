@@ -26,24 +26,7 @@ while True:
 
 		print("\nPlease enter the total time of flight - leave blank if unknown")
 		t = input("t = ")
-
-		projectile = {
-			x:{
-				s: sx,
-				u: ux,
-				v: vx,
-				a: ax
-			},
-			y:{
-				x: sy,
-				u: uy,
-				v: vy,
-				a: ay
-			}
-		}
 	
-		print (projectile)
-
 		# If menuvalidator() returns False, tell the user their input
 		# configuration is invalid.
 		if menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t) == False:

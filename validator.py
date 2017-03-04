@@ -3,7 +3,7 @@ import math
 
 # Validates the values inputted by sending them to
     # the correct function and returning True.
-def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t, t):
+def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
     
     # If ux, uy and ay have values, send them to
         # functions.uxuyay() and return True.
@@ -186,9 +186,9 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t, t):
 
         if conditions_unmet == 0:
             variables = [round(float(sx), 3), round(float(ux), 3),
-                         round(float(ux), 3), 0.0,
+                         round(float(vx), 3), round(float(ax), 3),
                          round(float(t), 3), round(float(sy), 3),
-                         round(float(uy), 3), 0.0,
+                         round(float(uy), 3), round(float(vy), 3),
                          round(float(ay), 3), round(float(t), 3)]
             print(" "*57, "X")
             print("-"*116)
@@ -207,14 +207,14 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t, t):
                           variables[4]))
             print("-"*116)
 
-            print("\n", " "*50, "Y (TO APEX)")
+            print("\n", " "*50, "Y")
             print("-"*116)
             print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
                   .format("HEIGHT",
                           "INITIAL VELOCIt",
                           "FINAL VELOCIt",
                           "ACCELERATION",
-                          "TIME TO APEX"))
+                          "TIME"))
             print("-"*116)
             print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
                   .format(variables[5],

@@ -46,11 +46,9 @@ while True:
 
         # If menuvalidator() returns False, tell the user their input
             # configuration is invalid.
-<<<<<<< HEAD
-        if menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, tx, ty) == False:
-=======
+
         if menuvalidator(float(sx), float(sy), float(ux), float(uy), float(vx), float(vy), float(ax), float(ay), float(tx), float(ty)) == False:
->>>>>>> eaab6a3bfa3da69c4c3f7c2efb6f0cd82675c6a6
+
              print("\n"*10, "Invalid. Got any more values? Trying again...\n")
              continue
         # Otherwise, break out of the loop and finish.

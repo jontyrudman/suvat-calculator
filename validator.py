@@ -3,7 +3,7 @@ import math
 
 # Validates the values inputted by sending them to
     # the correct function and returning True.
-def menuvalidator(sx:float, sy:float, ux:float, uy:float, vx:float, vy:float, ax:float, ay:float, tx:float, ty:float):
+def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, tx, ty):
     
     # If ux, uy and ay have values, send them to
         # functions.uxuyay() and return True.

@@ -168,19 +168,15 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, tx, ty):
 
             if "" not in (sy, uy, vy):
                 ty = functions.t_suv(sy, uy, vy)
-                tx = float(2*ty)
 
             elif "" not in (uy, vy, ay):
                 ty = functions.t_uva(uy, vy, ay)
-                tx = float(2*ty)
 
             elif "" not in (sy, vy, ay):
                 ty = functions.t_sva(sy, vy, ay)
-                tx = float(2*ty)
 
             elif "" not in (sy, uy, ay):
                 ty = functions.t_sua(sy, uy, ay)
-                tx = float(2*ty)
 
             else: conditions_unmet += 1
 

@@ -33,7 +33,7 @@ while True:
 
         # If there is no value for total time (tx), ask for ty
             # and set tx as 2*ty.
-        if "" in tx:
+        if "" == tx:
             ty = input("   time to reach apex = ")
             if "" not in ty:
                 tx = 2*float(ty)

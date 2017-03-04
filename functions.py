@@ -6,48 +6,6 @@ from math import sqrt
 #The have section's letters must be in the order of "suvat"
 #The order of the paramaters must also follow the order of "suvat"
 
-def suvatSolver(s, u, v, a, t):
-	loops = 0
-	while (s = "" or u = "" or v = "" or a = "" or t = "" or s = "Div/0" or u = "Div/0" or v = "Div/0" or a = "Div/0" or t = "Div/0") and loops < 6
-		if t = "":
-			if "" not in [u, v, a]:
-				t = t_uva(u, v, a) #Potential div/0 error
-			elif "" not in [s, u, a]:
-				t = t_sua(s, u, a)
-			elif "" not in [s, v, a):
-				t = t_sva(s, v, a)
-			elif "" not in [s, u, v]:
-				t = t_suv(s, u, v)
-		elif s = "":
-			if "" not in [u, a, t]:
-				s = s_uat(u, a, t)
-			elif "" not in [v, a, t]:
-				s = s_vat(v, a, t)
-			elif "" not in [u, v, a]
-				s = s_uva(u, v, a)
-			elif "" not in [u, v, t]:
-				s = s_uvt(u, v, t)
-		elif u = "":
-			if "" not in [v, a, t]:
-				u = u_vat(v, a, t)
-			elif "" not in [s, a, t]:
-				u = u_sat(s, a, t)
-			elif "" not in [s, v, a]:
-				u = u_sva(s, v, a)
-			elif "" not in [s, v, t]:
-				u = u_svt(s, v, t)
-		elif v = "":
-			if "" not in [u, a, t]:
-				v = v_uat(u, a, t)
-			elif "" not in [s, a, t]:
-				v = v_sat(s, a, t)
-			elif "" not in [s, u, a]:
-				v = v_sua(s, v, a)
-			elif "" not in [s, u, t]:
-				v = v_sut(s, u, t)
-		elif a = "":
-			print ("Need to do a")
-
 #v=u+at
 def v_uat(u:float, a:float, t:float) -> float:
 	try:

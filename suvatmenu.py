@@ -14,35 +14,28 @@ while True:
         sx = input("x: range = ")
         ux = input("   initial velocity = ")
 
-        # If there is no value for initial velocity (ux), ask for vx
-            # and set ux to vx.
-        if "" == ux:
-            vx = input("   final velocity = ")
-            if "" not in vx:
-                ux = vx
-        # Otherwise, set vx to ux.
-        else:
-            vx = ux
-            print("   final velocity =", vx)
+        vx = input("   final velocity = ")
 
-        # Notifies the user that x accel is 0.
-        print("   acceleration = 0.0")
+        ax = input("   acceleration = ")
 
         # Asks for total time.
         tx = input("   total time = ")
 
         # Asks for the y values.
         sy = input("\ny: height at apex = ")
+
         uy = input("   initial velocity = ")
 
         # Notifies the user that the velocity 
             # at the apex will always be 0.
         print("   velocity at apex = 0.0")
+        vy = "0"
+
         ay = input("   acceleration = ")
 
         # If there is no value for total time (tx), ask for ty
             # and set tx as 2*ty.
-        if "" == tx:
+        if "" in tx:
             ty = input("   time to reach apex = ")
             if "" not in ty:
                 tx = 2*float(ty)
@@ -51,9 +44,9 @@ while True:
             ty = float(tx)/2
             print("   time to reach apex =", ty)
 
-        # If menuvalidator() returns True, tell the user their input
+        # If menuvalidator() returns False, tell the user their input
             # configuration is invalid.
-        if menuvalidator(sx, ux, vx, tx, sy, uy, ay, ty) == False:
+        if menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, tx, ty) == False:
              print("\n"*10, "Invalid. Got any more values? Trying again...\n")
              continue
         # Otherwise, break out of the loop and finish.

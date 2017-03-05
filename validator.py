@@ -3,7 +3,7 @@ import math
 
 #Would this work to split it up into finding s/u/v/a/t functions that can be called by if sx == "" or if sy == ""???
 def findS(u, v, a, t):
-	if "" not in (u a, t):
+	if "" not in (u, a, t):
                 s = functions.s_uat(u, a, t)
 
             elif "" not in (v, a, t):

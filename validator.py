@@ -3,19 +3,19 @@ import math
 
 #Would this work to split it up into finding s/u/v/a/t functions that can be called by if sx == "" or if sy == ""???
 def findS(u, v, a, t):
-	if "" not in (u, a, t):
-                s = functions.s_uat(u, a, t)
+    if "" not in (u, a, t):
+        s = functions.s_uat(u, a, t)
 
-            elif "" not in (v, a, t):
-                s = functions.s_vat(v, a, t)
+    elif "" not in (v, a, t):
+        s = functions.s_vat(v, a, t)
 
-            elif "" not in (u, v, a):
-                s = functions.s_uva(u, v, a)
+    elif "" not in (u, v, a):
+        s = functions.s_uva(u, v, a)
 
-            elif "" not in (u, v, t):
-                s = functions.s_uvt(u, v, t)
+    elif "" not in (u, v, t):
+        s = functions.s_uvt(u, v, t)
 
-            return s
+    return s
 
 # Validates the values inputted by sending them to
     # the correct function and returning True.
@@ -38,8 +38,8 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
 
         if sx == "":
             s = findS(ux, vx, ax, t)								#Could this work?????
-            if  not isinstance(s, float)
-		conditions_unmet += 1
+            if not isinstance(s, float):
+                conditions_unmet += 1
             #if "" not in (ux, ax, t):
             #    sx = functions.s_uat(ux, ax, t)
 

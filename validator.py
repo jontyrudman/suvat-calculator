@@ -1,8 +1,71 @@
 import functions
 import math
 
-#Would this work to split it up into finding s/u/v/a/t functions that can be called by if sx == "" or if sy == ""???
+#Returns [sx, ux, vx, ax, sy, uy, vy, ay, t]
+def suvatSolver(sx, ux, vx, ax, sy, uy, vy, ay, t):
+    last_conditions_unmet = 6
+    conditions_unmet = 0
+    while True:
+
+        if sx == "":
+            sx = findS(ux, vx, ax, t)
+            if not isinstance(sx, float):
+                conditions_unmet += 1
+
+        if sy == "":
+            sy = findS(uy, vy, ay, t)
+            if not isinstance(sx, float):
+                conditions_unmet += 1
+
+        if ux == "":
+            ux = findU(sx, vx, ax, t)
+            if not isinstance(ux, float):
+               conditions_unmet += 1
+
+        if uy == "":
+            uy = findU(sy, vy, ay, t)
+            if not isinstance(uy, float):
+               conditions_unmet += 1
+
+        if vx == "":
+            vx = findV(sx, ux, ax, t)
+            if not isinstance(vx, float):
+               conditions_unmet += 1
+
+        if vy == "":
+            vy = findV(sy, uy, ay, t)
+            if not isinstance(vy, float):
+               conditions_unmet += 1
+
+        if ax == "":
+            ax = findA(sx, ux, vx, t)
+            if not isinstance(ax, float):
+               conditions_unmet += 1
+            
+        if ay == "":
+            ay = findA(sy, uy, vy, t)
+            if not isinstance(vy, float):
+               conditions_unmet += 1
+
+        if t == "":
+             t = findT(sx, ux, vx, ax)
+             if t == "":
+                  t = findT(sy, uy, vy, ay)
+             else: conditions_unmet += 1
+
+        if conditions_unmet == 0:
+             return [sx, ux, vx, ax, sy, uy, vy, ay, t]
+
+        #Return False if no values are found
+        elif conditions_unmet == last_conditions_unmet: return False
+
+        else:
+            last_conditions_unmet = conditions_unmet
+            conditions_unmet = 0
+            continue
+
 def findS(u, v, a, t):
+    s = ""
     if "" not in (u, a, t):
         s = functions.s_uat(u, a, t)
 
@@ -17,10 +80,76 @@ def findS(u, v, a, t):
 
     return s
 
+def findU(s, v, a, t):
+    u = ""
+    if "" not in (v, a, t):
+        u = functions.u_vat(v, a, t)
+
+    elif "" not in (s, a, t):
+        u = functions.u_sat(s, a, t)
+
+    elif "" not in (s, v, a):
+        u = functions.u_sva(s, v, a)
+
+    elif "" not in (s, v, t):
+        u = functions.u_svt(s, v, t)
+
+    return u
+
+def findV(s, u, a, t):
+    v = ""
+    if "" not in (u, a, t):
+        v = functions.v_uat(u, a, t)
+
+    elif "" not in (s, a, t):
+        v = functions.v_sat(a, a, t)
+
+    elif "" not in (s, u, ax):
+        v = functions.v_sua(s, u, a)
+
+    elif "" not in (s, u, t):
+        v = functions.v_sut(s, u, t)
+
+    return v
+
+def findA(s, u, v, t):
+    a = ""
+    if "" not in (u, v, t):
+        a = functions.a_uvt(u, v, t)
+
+    elif "" not in (s, u, t):
+        a = functions.a_sut(s, u, t)
+
+    elif "" not in (s, v, t):
+        a = functions.a_svt(s, v, t)
+
+    elif "" not in (s, u, v):
+        a = functions.a_suv(s, u, v)
+
+    return a
+
+def findT(s, u, v, a):
+     t = ""
+     if "" not in (s, u, v):
+        t = functions.t_suv(s, u, v)
+
+     elif "" not in (u, v, a):
+        t = functions.t_uva(u, v, a)
+
+     elif "" not in (s, v, a):
+        t = functions.t_sva(s, v, a)
+
+     elif "" not in (s, u, a):
+        t = functions.t_sua(s, u, a)
+     return t
+
 # Validates the values inputted by sending them to
     # the correct function and returning True.
 def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
     
+   # if uy == "" and "" not in (sy, ay):
+    #    uy = functions.u_sva(sy, 0, ay)
+
     # If ux, uy and ay have values, send them to
         # functions.uxuyay() and return True.
     #if "" not in (ux, uy, ay):
@@ -32,182 +161,63 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
     #elif "" not in (sx, sy, ay):
         #functions.sxsyay(sx, sy, ay)
         #return True
-    last_conditions_unmet = 6
-    conditions_unmet = 0
-    while True:
+   
 
-        if sx == "":
-            s = findS(ux, vx, ax, t)								#Could this work?????
-            if not isinstance(s, float):
-                conditions_unmet += 1
-            #if "" not in (ux, ax, t):
-            #    sx = functions.s_uat(ux, ax, t)
+#            if "" not in (sx, ux, vx):
+#                t = functions.t_suv(sx, ux, vx)
+#
+#            elif "" not in (ux, vx, ax):
+#                t = functions.t_uva(ux, vx, ax)
+#
+#            elif "" not in (sx, vx, ax):
+#                t = functions.t_sva(sx, vx, ax)
+#
+#            elif "" not in (sx, ux, ax):
+#                t = functions.t_sua(sx, ux, ax)
+#
+#            else: conditions_unmet += 1
 
-            #elif "" not in (vx, ax, t):
-            #    sx = functions.s_vat(vx, ax, t)
+#        if t == "":
+#
+#            if "" not in (sy, uy, vy):
+#                t = functions.t_suv(sy, uy, vy)
+#                t = float(2*t)
+#
+#            elif "" not in (uy, vy, ay):
+#                t = functions.t_uva(uy, vy, ay)
+#                t = float(2*t)
+#
+#            elif "" not in (sy, vy, ay):
+#                t = functions.t_sva(sy, vy, ay)
+#                t = float(2*t)
+#
+#            elif "" not in (sy, uy, ay):
+#                t = functions.t_sua(sy, uy, ay)
+#                t = float(2*t)
+#
+#            else: conditions_unmet += 1
 
-            #elif "" not in (ux, vx, ax):
-            #    sx = functions.s_uva(ux, vx, ax)
 
-            #elif "" not in (ux, vx, t):
-            #    sx = functions.s_uvt(ux, vx, t)
-
-            #else: conditions_unmet += 1
-
-        if sy == "":
-
-            if "" not in (uy, ay, t):
-                sy = functions.s_uat(uy, ay, t)
-
-            elif "" not in (vy, ay, t):
-                sy = functions.s_vat(vy, ay, t)
-
-            elif "" not in (uy, vy, ay):
-                sy = functions.s_uva(uy, vy, ay)
-
-            elif "" not in (uy, vy, t):
-                sy = functions.s_uvt(uy, vy, t)
-
-            else: conditions_unmet += 1
-
-        if ux == "":
-
-            if "" not in (vx, ax, t):
-                ux = functions.u_vat(vx, ax, t)
-
-            elif "" not in (sx, ax, t):
-                ux = functions.u_sat(sx, ax, t)
-
-            elif "" not in (sx, vx, ax):
-                ux = functions.u_sva(sx, vx, ax)
-
-            elif "" not in (sx, vx, t):
-                ux = functions.u_svt(sx, vx, t)
-
-            else: conditions_unmet += 1
-
-        if uy == "":
-
-            if "" not in (vy, ay, t):
-                uy = functions.u_vat(vy, ay, t)
-
-            elif "" not in (sy, ay, t):
-                uy = functions.u_sat(sy, ay, t)
-
-            elif "" not in (sy, vy, ay):
-                uy = functions.u_sva(sy, vy, ay)
-
-            elif "" not in (sy, vy, t):
-                uy = functions.u_svt(sy, vy, t)
-
-            else: conditions_unmet += 1
-
-        if vx == "":
-
-            if "" not in (ux, ax, t):
-                vx = functions.v_uat(ux, ax, t)
-
-            elif "" not in (sx, ax, t):
-                vx = functions.v_sat(ax, ax, t)
-
-            elif "" not in (sx, ux, ax):
-                vx = functions.v_sua(sx, ux, ax)
-
-            elif "" not in (sx, ux, t):
-                vx = functions.v_sut(sx, ux, t)
-
-            else: conditions_unmet += 1
-
-        if vy == "":
-
-            if "" not in (uy, ay, t):
-                vy = functions.v_uat(uy, ay, t)
-
-            elif "" not in (sy, ay, t):
-                vy = functions.v_sat(ay, ay, t)
-
-            elif "" not in (sy, uy, ay):
-                vy = functions.v_sua(sy, uy, ay)
-
-            elif "" not in (sy, uy, t):
-                vy = functions.v_sut(sy, uy, t)
-
-            else: conditions_unmet += 1
-
-        if ax == "":
-
-            if "" not in (ux, vx, t):
-                ax = functions.a_uvt(ux, vx, t)
-
-            elif "" not in (sx, ux, t):
-                ax = functions.a_sut(sx, ux, t)
-
-            elif "" not in (sx, vx, t):
-                ax = functions.a_svt(sx, vx, t)
-
-            elif "" not in (sx, ux, vx):
-                ax = functions.a_suv(sx, ux, vx)
-
-            else: conditions_unmet += 1
-
-        if ay == "":
-
-            if "" not in (uy, vy, t):
-                ay = functions.a_uvt(uy, vy, t)
-
-            elif "" not in (sy, uy, t):
-                ay = functions.a_sut(sy, uy, t)
-
-            elif "" not in (sy, vy, t):
-                ay = functions.a_svt(sy, vy, t)
-
-            elif "" not in (sy, uy, vy):
-                ay = functions.a_suv(sy, uy, vy)
-
-            else: conditions_unmet += 1
-
-        if t == "":
-
-            if "" not in (sx, ux, vx):
-                t = functions.t_suv(sx, ux, vx)
-
-            elif "" not in (ux, vx, ax):
-                t = functions.t_uva(ux, vx, ax)
-
-            elif "" not in (sx, vx, ax):
-                t = functions.t_sva(sx, vx, ax)
-
-            elif "" not in (sx, ux, ax):
-                t = functions.t_sua(sx, ux, ax)
-
-            else: conditions_unmet += 1
-
-        if t == "":
-
-            if "" not in (sy, uy, vy):
-                t = functions.t_suv(sy, uy, vy)
-                t = float(2*t)
-
-            elif "" not in (uy, vy, ay):
-                t = functions.t_uva(uy, vy, ay)
-                t = float(2*t)
-
-            elif "" not in (sy, vy, ay):
-                t = functions.t_sva(sy, vy, ay)
-                t = float(2*t)
-
-            elif "" not in (sy, uy, ay):
-                t = functions.t_sua(sy, uy, ay)
-                t = float(2*t)
-
-            else: conditions_unmet += 1
-
-        if conditions_unmet == 0:
+        suvatSolved = suvatSolver(sx, ux, vx, ax, sy, uy, vy, ay, t)
+        if suvatSolved == False:
+             return False
+        else:
+            sx = suvatSolved[0]
+            ux = suvatSolved[1]
+            vx = suvatSolved[2]
+            ax = suvatSolved[3]
+            sy = suvatSolved[4]
+            uy = suvatSolved[5]
+            vy = suvatSolved[6]
+            ay = suvatSolved[7]
+            t = suvatSolved[8]
+        
             variables = [round(float(sx), 3), round(float(ux), 3),
                          round(float(vx), 3), round(float(ax), 3),
                          round(float(t), 3), round(float(sy), 3),
                          round(float(uy), 3), round(float(vy), 3),
                          round(float(ay), 3), round(float(t), 3)]
+
             print(" "*57, "X")
             print("-"*116)
             print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
@@ -244,11 +254,6 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
 
             return True
 
-        elif conditions_unmet == last_conditions_unmet: return False
-
-        else:
-            last_conditions_unmet = conditions_unmet
-            conditions_unmet = 0
-            continue
+        
 
 

@@ -11,21 +11,21 @@ while True:
 		print("Welcome to the suvat solver! (Currently only works on flat ground)\n")
 
 		# Asks for the x values.
-		print("Please enter initial x values - leave blank if unknown")
+		print("Please enter x values for this instance of time - leave blank if unknown")
 		sx = input("s = ")
 		ux = input("u = ")
-		vx = input("v = ")
+		vx = input("v = ") #This will be the velocity at this instance of time
 		ax = input("a = ")
 
 		# Asks for the y values.
-		print("\nPlease enter initial y values - leave blank if unknown")
+		print("\nPlease enter y values for this instance of time - leave blank if unknown")
 		sy = input("s = ")
 		uy = input("u = ")
-		vy = input("v = ")
+		vy = input("v = ") #This will be the velocity at this instance of time
 		ay = input("a = ")
 
-		print("\nPlease enter the total time of flight - leave blank if unknown")
-		t = input("t = ")
+		print("\nPlease enter the time of this instance occured - leave blank if unknown")
+		t = input("t = ") #The point in time from the projectile being released to this instance in time
 	
 		# If menuvalidator() returns False, tell the user their input
 		# configuration is invalid.
@@ -41,5 +41,3 @@ while True:
 	except ValueError:
 		print("\n"*10, "Please enter numerical values. Trying again...\n")
 		continue
-
-

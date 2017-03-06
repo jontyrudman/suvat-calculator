@@ -1,59 +1,39 @@
 import functions
 
-#Returns [sx, ux, vx, ax, sy, uy, vy, ay, t]
-def suvatSolver(sx, ux, vx, ax, sy, uy, vy, ay, t):
+#Returns [s, u, v, a, t]
+def suvatSolver(s, u, v, a, t):
     last_conditions_unmet = 6
     conditions_unmet = 0
     while True:
 
-        if sx == "":
-            sx = findS(ux, vx, ax, t)
-            if not isinstance(sx, float):
+        if s == "":
+            s = findS(u, v, a, t)
+            if not isinstance(s, float):
                 conditions_unmet += 1
 
-        if sy == "":
-            sy = findS(uy, vy, ay, t)
-            if not isinstance(sx, float):
-                conditions_unmet += 1
-
-        if ux == "":
-            ux = findU(sx, vx, ax, t)
-            if not isinstance(ux, float):
+        if u == "":
+            u = findU(s, v, a, t)
+            if not isinstance(u, float):
                conditions_unmet += 1
 
-        if uy == "":
-            uy = findU(sy, vy, ay, t)
-            if not isinstance(uy, float):
+        if v == "":
+            v = findV(s, u, a, t)
+            if not isinstance(v, float):
                conditions_unmet += 1
 
-        if vx == "":
-            vx = findV(sx, ux, ax, t)
-            if not isinstance(vx, float):
-               conditions_unmet += 1
-
-        if vy == "":
-            vy = findV(sy, uy, ay, t)
-            if not isinstance(vy, float):
-               conditions_unmet += 1
-
-        if ax == "":
-            ax = findA(sx, ux, vx, t)
-            if not isinstance(ax, float):
-               conditions_unmet += 1
-            
-        if ay == "":
-            ay = findA(sy, uy, vy, t)
-            if not isinstance(vy, float):
+        if a == "":
+            a = findA(s, u, v, t)
+            if not isinstance(a, float):
                conditions_unmet += 1
 
         if t == "":
-             t = findT(sx, ux, vx, ax)
+             t = findT(s, u, v, a)
              if t == "":
-                  t = findT(sy, uy, vy, ay)
+                  t = findT(s, u, v, a)
              else: conditions_unmet += 1
 
         if conditions_unmet == 0:
-             return [sx, ux, vx, ax, sy, uy, vy, ay, t]
+             return [s, u, v, a, t]
 
         #Return False if no values are found
         elif conditions_unmet == last_conditions_unmet: return False

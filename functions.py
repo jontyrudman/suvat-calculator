@@ -85,7 +85,7 @@ def t_sua(s:float, u:float, a:float) -> float:
 		u = float(u)
 		a = float(a)
 		#Disregard the - version of the +- part as t must be positive
-		return float((-u + sqrt(u**2 - 2*a*-s))/a)
+		return [float((-u + sqrt(u**2 - 2*a*-s))/a), float((-u - sqrt(u**2 - 2*a*-s))/a)]                                    #ARGH +/- problems!!!!!
 	except ValueError:
 		return "input error"
 	except ZeroDivisionError:

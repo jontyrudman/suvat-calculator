@@ -5,7 +5,7 @@ import math
 # Validates the values inputted by sending them to
     # the correct function and returning True.
 def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
-    
+
    # if uy == "" and "" not in (sy, ay):
     #    uy = functions.u_sva(sy, 0, ay)
 
@@ -20,7 +20,7 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
     #elif "" not in (sx, sy, ay):
         #functions.sxsyay(sx, sy, ay)
         #return True
-   
+
 
 #            if "" not in (sx, ux, vx):
 #                t = functions.t_suv(sx, ux, vx)
@@ -57,20 +57,27 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
 #            else: conditions_unmet += 1
 
 
-        suvatSolved = suvatSolver(sx, ux, vx, ax, sy, uy, vy, ay, t)
-        if suvatSolved == False:
+        xComponent = suvatSolver(sx, ux, vx, ax, t)
+        yComponent = suvatSolver(sy, uy, vy, ay, t)
+
+        if xComponent == False or yComponent == False:
              return False
         else:
-            sx = suvatSolved[0]
-            ux = suvatSolved[1]
-            vx = suvatSolved[2]
-            ax = suvatSolved[3]
-            sy = suvatSolved[4]
-            uy = suvatSolved[5]
-            vy = suvatSolved[6]
-            ay = suvatSolved[7]
-            t = suvatSolved[8]
-        
+            sx = xComponent[0]
+            ux = xComponent[1]
+            vx = xComponent[2]
+            ax = xComponent[3]
+
+            sy = yComponent[0]
+            uy = yComponent[1]
+            vy = yComponent[2]
+            ay = yComponent[3]
+
+            if xComponent[4] == yComponent[4]:
+                t = xComponent[4]
+            else:
+                return False
+
             variables = [round(float(sx), 3), round(float(ux), 3),
                          round(float(vx), 3), round(float(ax), 3),
                          round(float(t), 3), round(float(sy), 3),
@@ -111,8 +118,4 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
                           variables[9]))
             print("-"*116)
 
-            return True
-
-        
-
-
+            return

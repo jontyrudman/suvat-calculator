@@ -1,14 +1,19 @@
 # suvat-calculator
 A simple, python suvat projectile calculator that takes any valid x and y values you have, and displays the rest.
 
-**Currently only works for flat ground, and only gives y values up to the apex.**
+**Currently only works for flat ground**
 
 Changes that need to be made:
 
 - [x] Changing the names of the equation functions to make them shorter and easier to call and edit. This will sacrifice some readability, but the readability for those names is terrible and can't improve more.
-- [ ] Adding on a more versatile calculator for the downward y part of the trajectory. This needs to have an input for if the projectile is fired from above ground, which is often the case.
+- [ ] ~~Adding on a more versatile calculator for the downward y part of the trajectory. This needs to have an input for if the projectile is fired from above ground, which is often the case.~~
 - [ ] Introducing an input interface for firing projectiles from above ground. See 2 for how this links in.
 - [ ] A basic function for finding and using the separate components from a given resultant initial velocity and angle, if inputted.
+- [ ] Add a section to then calculate values at a different instance ie when s = 10 or v = 5
+- [ ] Create a projectile class to contain the projectiles info
+- [ ] Allow multiple projectiles in one 2D space
+- [ ] Create a GUI to visually show the projectiles motion
+- [ ] Calculate points in which multiple projectiles will collide
 
 **USAGE** 
 

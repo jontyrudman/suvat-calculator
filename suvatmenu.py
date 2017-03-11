@@ -18,7 +18,7 @@ while True:
 
 		print("\nPlease enter the time of this instance occured - leave blank if unknown")
 		t = input("t = ") #The point in time from the projectile being released to this instance in time
-	
+
 		# If menuvalidator() returns False, tell the user their input
 		# configuration is invalid.
 		if menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t) == False:
@@ -30,3 +30,4 @@ while True:
 	except ValueError:
 		print("\n"*10, "Please enter numerical values. Trying again...\n")
 		continue
+input("Press any key to continue")

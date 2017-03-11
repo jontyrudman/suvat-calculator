@@ -30,11 +30,12 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
                 print(xComponent[4], yComponent[4])
                 return False
 
-            variables = [round(float(sx), 3), round(float(ux), 3),
-                         round(float(vx), 3), round(float(ax), 3),
-                         round(float(t), 3), round(float(sy), 3),
-                         round(float(uy), 3), round(float(vy), 3),
-                         round(float(ay), 3), round(float(t), 3)]
+
+#            variables = [round(float(sx), 3), round(float(ux), 3),
+#                         round(float(vx), 3), round(float(ax), 3),
+#                         round(float(t), 3), round(float(sy), 3),
+#                         round(float(uy), 3), round(float(vy), 3),
+#                         round(float(ay), 3), round(float(t), 3)]
 
             print(" "*57, "X")
             print("-"*116)
@@ -46,11 +47,11 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
                           "TOTAL TIME"))
             print("-"*116)
             print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format(variables[0],
-                          variables[1],
-                          variables[2],
-                          variables[3],
-                          variables[4]))
+                  .format(round(float(sx), 3),
+                          round(float(ux), 3),
+                          round(float(vx), 3),
+                          round(float(ax), 3),
+                          round(float(t), 3)))
             print("-"*116)
 
             print("\n", " "*50, "Y")
@@ -63,11 +64,11 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
                           "TIME"))
             print("-"*116)
             print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format(variables[5],
-                          variables[6],
-                          variables[7],
-                          variables[8],
-                          variables[9]))
+                  .format(round(float(sy), 3),
+                          round(float(uy), 3),
+                          round(float(vy), 3),
+                          round(float(ay), 3),
+                          round(float(t), 3)))
             print("-"*116)
 
             return

@@ -25,7 +25,8 @@ while True:
 
 			print("\n"*10, "Invalid. Got any more values? Trying again...\n")
 			continue
-		else: break
+		else:
+			break
 
 	except ValueError:
 		print("\n"*10, "Please enter numerical values. Trying again...\n")

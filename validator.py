@@ -4,58 +4,6 @@ import math
 # Validates the values inputted by sending them to
     # the correct function and returning True.
 def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
-
-   # if uy == "" and "" not in (sy, ay):
-    #    uy = functions.u_sva(sy, 0, ay)
-
-    # If ux, uy and ay have values, send them to
-        # functions.uxuyay() and return True.
-    #if "" not in (ux, uy, ay):
-        #functions.uxuyay(ux, uy, ay)
-        #return True
-
-    # If sx, sy and ay have values, send them to
-        # functions.sxsyay() and return True.
-    #elif "" not in (sx, sy, ay):
-        #functions.sxsyay(sx, sy, ay)
-        #return True
-
-
-#            if "" not in (sx, ux, vx):
-#                t = functions.t_suv(sx, ux, vx)
-#
-#            elif "" not in (ux, vx, ax):
-#                t = functions.t_uva(ux, vx, ax)
-#
-#            elif "" not in (sx, vx, ax):
-#                t = functions.t_sva(sx, vx, ax)
-#
-#            elif "" not in (sx, ux, ax):
-#                t = functions.t_sua(sx, ux, ax)
-#
-#            else: conditions_unmet += 1
-
-#        if t == "":
-#
-#            if "" not in (sy, uy, vy):
-#                t = functions.t_suv(sy, uy, vy)
-#                t = float(2*t)
-#
-#            elif "" not in (uy, vy, ay):
-#                t = functions.t_uva(uy, vy, ay)
-#                t = float(2*t)
-#
-#            elif "" not in (sy, vy, ay):
-#                t = functions.t_sva(sy, vy, ay)
-#                t = float(2*t)
-#
-#            elif "" not in (sy, uy, ay):
-#                t = functions.t_sua(sy, uy, ay)
-#                t = float(2*t)
-#
-#            else: conditions_unmet += 1
-
-
         xComponent = suvatSolver(sx, ux, vx, ax, t)
         yComponent = suvatSolver(sy, uy, vy, ay, t)
 

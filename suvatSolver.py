@@ -1,48 +1,6 @@
 import functions
 
 #Returns [s, u, v, a, t]
-def suvatSolverOld(s, u, v, a, t):
-    last_conditions_unmet = 6
-    conditions_unmet = 0
-    while True:
-
-        if s == "":
-            s = findS(u, v, a, t)
-            if not isinstance(s, float):
-                conditions_unmet += 1
-
-        if u == "":
-            u = findU(s, v, a, t)
-            if not isinstance(u, float):
-               conditions_unmet += 1
-
-        if v == "":
-            v = findV(s, u, a, t)
-            if not isinstance(v, float):
-               conditions_unmet += 1
-
-        if a == "":
-            a = findA(s, u, v, t)
-            if not isinstance(a, float):
-               conditions_unmet += 1
-
-        if t == "":
-             t = findT(s, u, v, a)
-             if t == "":
-                  t = findT(s, u, v, a)
-             else: conditions_unmet += 1
-
-        if conditions_unmet == 0:
-             return [s, u, v, a, t]
-
-        #Return False if no values are found
-        elif conditions_unmet == last_conditions_unmet: return False
-
-        else:
-            last_conditions_unmet = conditions_unmet
-            conditions_unmet = 0
-            continue
-
 def suvatSolver(s, u, v, a, t):
     #First check 3 values are present as suvat requires 3 values to calc another
     valuesGot = 0

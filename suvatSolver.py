@@ -1,7 +1,7 @@
 import functions
 
 #Returns [s, u, v, a, t]
-def suvatSolver(s, u, v, a, t):
+def suvatSolverOld(s, u, v, a, t):
     last_conditions_unmet = 6
     conditions_unmet = 0
     while True:
@@ -43,20 +43,35 @@ def suvatSolver(s, u, v, a, t):
             conditions_unmet = 0
             continue
 
-def suvatSolverNew(s, u, v, a, t):
-    #First check 3 values are present
+def suvatSolver(s, u, v, a, t):
+    #First check 3 values are present as suvat requires 3 values to calc another
+    valuesGot = 0
+    if s != "":
+        valuesGot += 1
+    if u != "":
+        valuesGot += 1
+    if v != "":
+        valuesGot += 1
+    if a != "":
+        valuesGot += 1
+    if t != "":
+        valuesGot += 1
+   
+    if valuesGot < 3:
+        return "Need more values"
 
     #Then go through each one and call the respective function to calc it
-    if s = "":
+    if s == "":
         s = findS(u, v, a, t)
-    if u = "":
+    if u == "":
         u = findU(s, v, a, t)
-    if v = "":
+    if v == "":
         v = findV(s, u, a, t)
-    if a = "":
+    if a == "":
         a = findA(s, u, v, t)
-    if t = "":
-        t - findT(s, u, v, a)
+    if t == "":
+        t = findT(s, u, v, a)
+
     return [s, u, v, a, t]
 
 def findS(u, v, a, t):

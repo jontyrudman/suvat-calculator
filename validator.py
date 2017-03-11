@@ -72,9 +72,14 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
             vy = yComponent[2]
             ay = yComponent[3]
 
-            if xComponent[4] == yComponent[4]:
+            if not isinstance(xComponent[4], float) and isinstance(yComponent[4], float):
+                t = yComponent[4]
+            elif isinstance(xComponent[4], float) and not isinstance(yComponent[4], float):
+                t = xComponent[4]
+            elif xComponent[4] == yComponent[4]:
                 t = xComponent[4]
             else:
+                print(xComponent[4], yComponent[4])
                 return False
 
             variables = [round(float(sx), 3), round(float(ux), 3),

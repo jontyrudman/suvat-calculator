@@ -58,7 +58,7 @@ def suvatSolver(s, u, v, a, t):
         valuesGot += 1
    
     if valuesGot < 3:
-        return "Need more values"
+        return False
 
     #Then go through each one and call the respective function to calc it
     if s == "":

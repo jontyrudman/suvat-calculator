@@ -43,6 +43,22 @@ def suvatSolver(s, u, v, a, t):
             conditions_unmet = 0
             continue
 
+def suvatSolverNew(s, u, v, a, t):
+    #First check 3 values are present
+
+    #Then go through each one and call the respective function to calc it
+    if s = "":
+        s = findS(u, v, a, t)
+    if u = "":
+        u = findU(s, v, a, t)
+    if v = "":
+        v = findV(s, u, a, t)
+    if a = "":
+        a = findA(s, u, v, t)
+    if t = "":
+        t - findT(s, u, v, a)
+    return [s, u, v, a, t]
+
 def findS(u, v, a, t):
     s = ""
     if "" not in (u, a, t):

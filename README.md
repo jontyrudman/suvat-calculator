@@ -11,6 +11,7 @@ Changes that need to be made:
 - [ ] A basic function for finding and using the separate components from a given resultant initial velocity and angle, if inputted.
 - [ ] Add a section to then calculate values at a different instance ie when s = 10 or v = 5
 - [ ] Create a projectile class to contain the projectiles info
+- [ ] Use the apex to calc extra vals if can be done and potentially explore the use of calculus if either option is possible
 - [ ] Allow multiple projectiles in one 2D space
 - [ ] Create a GUI to visually show the projectiles motion
 - [ ] Calculate points in which multiple projectiles will collide

@@ -20,6 +20,7 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
             vy = yComponent[2]
             ay = yComponent[3]
 
+            #In this section we need to include about trying to recalculate a component if the time can be gained from the other component
             if not isinstance(xComponent[4], float) and isinstance(yComponent[4], float):
                 t = yComponent[4]
             elif isinstance(xComponent[4], float) and not isinstance(yComponent[4], float):

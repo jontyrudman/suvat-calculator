@@ -10,11 +10,20 @@ while True:
         # Introduction. Needs work.
         print("Welcome to the suvat solver! (Currently only works on flat ground)\n")
 
+        # Asks for a value if there is an initial y displacement. If 
+            # so, switch on the branch for using it.
+        initialdisp_y = input("If there is an initial y displacement above ground, input 
+                   it = ")
+        finaldisp_y = input("")
+
         # Asks for the x values.
         sx = input("x: range = ")
         ux = input("   initial velocity = ")
         vx = input("   final velocity = ")
-        ax = input("   acceleration = ")
+
+        # Because I disagree with Dan. No one likes a wobbly parabola.
+        print("   acceleration = 0.0")
+        ax = 0.0
 
         # Asks for total time.
         tx = input("   total time = ")

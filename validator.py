@@ -30,46 +30,30 @@ def menuvalidator(sx, sy, ux, uy, vx, vy, ax, ay, t):
             else:
                 print(xComponent[4], yComponent[4])
                 return False
+            return [sx, ux, vx, ax, sy, uy, vy, ay, t]
 
-
-#            variables = [round(float(sx), 3), round(float(ux), 3),
-#                         round(float(vx), 3), round(float(ax), 3),
-#                         round(float(t), 3), round(float(sy), 3),
-#                         round(float(uy), 3), round(float(vy), 3),
-#                         round(float(ay), 3), round(float(t), 3)]
-
-            print(" "*57, "X")
-            print("-"*116)
-            print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format("RANGE",
-                          "INITIAL VELOCIt",
-                          "FINAL VELOCIt",
-                          "ACCELERATION",
-                          "TOTAL TIME"))
-            print("-"*116)
-            print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format(round(float(sx), 3),
-                          round(float(ux), 3),
-                          round(float(vx), 3),
-                          round(float(ax), 3),
-                          round(float(t), 3)))
-            print("-"*116)
-
-            print("\n", " "*50, "Y")
-            print("-"*116)
-            print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format("HEIGHT",
-                          "INITIAL VELOCIt",
-                          "FINAL VELOCIt",
-                          "ACCELERATION",
-                          "TIME"))
-            print("-"*116)
-            print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
-                  .format(round(float(sy), 3),
-                          round(float(uy), 3),
-                          round(float(vy), 3),
-                          round(float(ay), 3),
-                          round(float(t), 3)))
-            print("-"*116)
-
-            return
+def printSUVATComponents(sx, ux, vx, ax, sy, uy, vy, ay, t):
+         print(" "*57, "X")
+         print("-"*116)
+         print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
+               .format("S", "U", "V", "A", "T"))
+         print("-"*116)
+         print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
+               .format(round(float(sx), 3),
+                       round(float(ux), 3),
+                       round(float(vx), 3),
+                       round(float(ax), 3),
+                       round(float(t), 3)))
+         print("-"*116)
+         print("\n", " "*56, "Y")
+         print("-"*116)
+         print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
+               .format("S", "U", "V", "A", "T"))
+         print("-"*116)
+         print("| {:^20} | {:^20} | {:^20} | {:^20} | {:^20} |"
+               .format(round(float(sy), 3),
+                       round(float(uy), 3),
+                       round(float(vy), 3),
+                       round(float(ay), 3),
+                       round(float(t), 3)))
+         print("-"*116)

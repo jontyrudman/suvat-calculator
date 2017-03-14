@@ -1,5 +1,7 @@
 from math import sqrt
-
+from math import radians
+from math import cos
+from math import sin
 #SUVAT function names should in the format:
 #return_have
 #This means if we want v but have u,a,t it would be v_uat
@@ -217,3 +219,15 @@ def t_suv(s:float, u:float, v:float) -> float:
 	except ZeroDivisionError:
 		return "Div/0"
 
+#Vertical and Horizontal components
+
+def Components(angle:float, resul:float) -> float:
+	try:
+		angle = radians(float(angle))
+		resul = float(resul)
+		vert = resul*sin(angle)
+		hori = resul*cos(angle)
+		components = [vert,hori]
+		return components[]
+	except ValueError:
+		return "input error"

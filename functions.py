@@ -228,6 +228,6 @@ def Components(angle:float, resul:float) -> float:
 		vert = resul*sin(angle)
 		hori = resul*cos(angle)
 		components = [vert,hori]
-		return components[]
+		return components
 	except ValueError:
 		return "input error"

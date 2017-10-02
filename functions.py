@@ -1,5 +1,7 @@
 from math import sqrt
-
+from math import radians
+from math import cos
+from math import sin
 #SUVAT function names should in the format:
 #return_have
 #This means if we want v but have u,a,t it would be v_uat
@@ -33,6 +35,8 @@ def t_uva(u:float, v:float, a:float) -> float:
 		return float((v - u)/ a)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def a_uvt(u:float, v:float, t:float) -> float:
 	try:
@@ -42,6 +46,8 @@ def a_uvt(u:float, v:float, t:float) -> float:
 		return float((v - u)/ t)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 #s=ut+0.5at^2
 def s_uat(u:float, a:float, t:float) -> float:
@@ -61,6 +67,8 @@ def u_sat(s:float, a:float, t:float) -> float:
 		return float((s-(0.5 * a * t**2))/t)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def a_sut(s:float, u:float, t:float) -> float:
 	try:
@@ -70,6 +78,8 @@ def a_sut(s:float, u:float, t:float) -> float:
 		return float((2 * (s - u*t))/t**2)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def t_sua(s:float, u:float, a:float) -> float:
 	try:
@@ -77,9 +87,11 @@ def t_sua(s:float, u:float, a:float) -> float:
 		u = float(u)
 		a = float(a)
 		#Disregard the - version of the +- part as t must be positive
-		return float((-u + sqrt(u**2 - 2*a*-s))/a)
+		return [float((-u + sqrt(u**2 - 2*a*-s))/a), float((-u - sqrt(u**2 - 2*a*-s))/a)]                                    #ARGH +/- problems!!!!!
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 #s=vt-0.5at^2
 def s_vat(v:float, a:float, t:float) -> float:
@@ -108,6 +120,8 @@ def a_svt(s:float, v:float, t:float) -> float:
 		return float((2 * ((v*t) - s))/ t**2)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def t_sva(s:float, v:float, a:float) -> float:
 	try:
@@ -118,6 +132,8 @@ def t_sva(s:float, v:float, a:float) -> float:
 		return float((v - sqrt(v**2 - 2*a*s))/a)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 #v^2=u^2+2as
 def v_sua(s:float, u:float, a:float) -> float:
@@ -146,6 +162,8 @@ def a_suv(s:float, u:float, v:float) -> float:
 		return float((v**2 - u**2)/ (2 * s))
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def s_uva(u:float, v:float, a:float) -> float:
 	try:
@@ -155,6 +173,8 @@ def s_uva(u:float, v:float, a:float) -> float:
 		return float((v**2 - u**2)/ (2 * a))
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 #s=t(u+v)/2
 def s_uvt(u:float, v:float, t:float) -> float:
@@ -174,6 +194,8 @@ def u_svt(s:float, v:float, t:float) -> float:
 		return float(((2 * s)/ t) - v)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def v_sut(s:float, u:float, t:float) -> float:
 	try:
@@ -183,6 +205,8 @@ def v_sut(s:float, u:float, t:float) -> float:
 		return float(((2 * s)/ t) - u)
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
 def t_suv(s:float, u:float, v:float) -> float:
 	try:
@@ -192,4 +216,18 @@ def t_suv(s:float, u:float, v:float) -> float:
 		return float((2 * s)/ (u + v))
 	except ValueError:
 		return "input error"
+	except ZeroDivisionError:
+		return "Div/0"
 
+#Vertical and Horizontal components
+
+def Components(angle:float, resul:float) -> float:
+	try:
+		angle = radians(float(angle))
+		resul = float(resul)
+		vert = resul*sin(angle)
+		hori = resul*cos(angle)
+		components = [vert,hori]
+		return components
+	except ValueError:
+		return "input error"

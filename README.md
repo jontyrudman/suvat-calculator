@@ -1,3 +1,5 @@
+**Update: This was a slightly messy attempt by a 17 year old me (and a couple of mates) at making a suvat solver. Rewriting for fun [here](https://github.com/jontyrudman/suvat-solver).**
+
 # suvat-calculator
 A simple, python suvat projectile calculator that takes any valid x and y values you have, and displays the rest.
 
